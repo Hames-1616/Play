@@ -51,7 +51,7 @@ class MyViewModel : ViewModel() {
             processing.value = true
             tables.clear()
 
-            ga!!.initPopulation()
+            ga!!.initPopulation()//intial 500 peeps
             val chromo = ga!!.createNextGeneration { gen, fit, bestFound ->
                 generation.intValue = gen
                 fitness.doubleValue = fit

@@ -259,6 +259,7 @@ class GA(private val inputParser: InputParser) {
                 looped++
             }
 
+            //if no best child was found make the current child the best
             if (looped >= POP_SIZE) mostFit = child.deepClone()
 
             population.clear()
@@ -298,20 +299,6 @@ class GA(private val inputParser: InputParser) {
         return if (parentA.calcFitness() > parentB.calcFitness()) parentA else parentB
     }
 
-    private fun customMutation(chromo: Chromosome) {
-        var newFitness = 0.0
-        val oldFitness = chromo.calcFitness()
-        var i = 0
-        val geneNo = Random().nextInt(inputParser.numStudentGroups)
-
-        while (newFitness < oldFitness) {
-            chromo.gene[geneNo] = Gene(geneNo, inputParser)
-            newFitness = chromo.calcFitness()
-            if (i++ >= 200) break
-        }
-    }
-
-    // Alternative mutation algorithms
     private fun swapMutation(c: Chromosome) {
         val geneNo = Random().nextInt(inputParser.numStudentGroups)
         val slot1 = Random().nextInt(inputParser.hoursPerDay * inputParser.daysPerWeek)
