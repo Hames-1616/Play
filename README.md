@@ -37,7 +37,7 @@ Values that can be altered in the project
 3. Gene size
 4. Hours/day
 5. days/week
-6. Input.txt fil
+6. Input.txt 
 ## Definitions
 
 The crossover rate in a genetic algorithm (GA) is a parameter that determines the probability of two parent individuals exchanging genetic information to create offspring.
